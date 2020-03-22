@@ -9,7 +9,7 @@ ENV CSGO_DIR /home/steam/csgo
 
 SHELL ["/bin/bash", "-c"]
 
-ARG ENTRYPOINT_SCRIPT_URL=https://raw.githubusercontent.com/kaimallea/csgo/master/containerfs/start.sh
+ARG ENTRYPOINT_SCRIPT_URL=https://raw.githubusercontent.com/ggvoicu/csgo/master/containerfs/start.sh
 ARG STEAMCMD_URL=https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz
 ARG METAMOD_PLUGIN_URL=https://mms.alliedmods.net/mmsdrop/1.10/mmsource-1.10.7-git971-linux.tar.gz
 ARG SOURCEMOD_PLUGIN_URL=https://sm.alliedmods.net/smdrop/1.10/sourcemod-1.10.0-git6478-linux.tar.gz
