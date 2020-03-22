@@ -58,10 +58,10 @@ test:
 		-e "TV_ENABLE=$(TV_ENABLE)" \
 		-e "LAN=$(LAN)" \
 		-e "SOURCEMOD_ADMINS=$(SOURCEMOD_ADMINS)" \
+		-e "AUTHKEYWORKSHOP=$(AUTHKEYWORKSHOP)"
 		--name $(CONTAINER_NAME) \
 		$(IMAGE_NAME)
 
 stop:
 	docker stop $(CONTAINER_NAME)
 	docker rm $(CONTAINER_NAME)
-	
