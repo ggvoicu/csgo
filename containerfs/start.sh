@@ -24,38 +24,10 @@ export MAXPLAYERS="${MAXPLAYERS:-12}"
 export TV_ENABLE="${TV_ENABLE:-1}"
 export LAN="${LAN:-0}"
 export SOURCEMOD_ADMINS="${SOURCEMOD_ADMINS:-}"
+export AUTHKEYWORKSHOP="${AUTHKEY:-}"
 
 # Attempt to update CSGO before starting the server
 ${STEAMCMD_DIR}/steamcmd.sh +login anonymous +force_install_dir ${CSGO_DIR} +app_update ${CSGO_APP_ID} +quit
-
-# Create dynamic autoexec config
-cat << AUTOEXECCFG > $CSGO_DIR/csgo/cfg/autoexec.cfg
-log on
-hostname "$SERVER_HOSTNAME"
-rcon_password "$RCON_PASSWORD"
-sv_password "$SERVER_PASSWORD"
-sv_cheats 0
-exec banned_user.cfg
-exec banned_ip.cfg
-AUTOEXECCFG
-
-# Create dynamic server config
-cat << SERVERCFG > $CSGO_DIR/csgo/cfg/server.cfg
-tv_enable $TV_ENABLE
-tv_delaymapchange 1
-tv_delay 30
-tv_deltacache 2
-tv_dispatchmode 1
-tv_maxclients 10
-tv_maxrate 0
-tv_overridemaster 0
-tv_relayvoice 1
-tv_snapshotrate 64
-tv_timeout 60
-tv_transmitall 1
-writeid
-writeip
-SERVERCFG
 
 # Add steam ids to sourcemod admin file
 IFS=',' read -ra STEAMIDS <<< "$SOURCEMOD_ADMINS"
@@ -84,3 +56,4 @@ exec $BASH ${CSGO_DIR}/srcds_run \
         +map $MAP \
         +sv_setsteamaccount $STEAM_ACCOUNT \
         +sv_lan $LAN
+        -authkey $AUTHKEY
