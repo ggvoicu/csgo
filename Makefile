@@ -19,6 +19,7 @@ MAXPLAYERS ?= 12
 TV_ENABLE ?= 1
 LAN ?= 1
 SOURCEMOD_ADMINS ?= changeme
+AUTHKEYWORKSHOP ?= changeme
 
 .PHONY: all clean image test stop
 
